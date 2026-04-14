@@ -7,7 +7,7 @@ set -eu -o pipefail
 cd $APP_ROOT
 
 # Create required composer.json and composer.lock files.
-composer create-project --no-install ${PROJECT:=drupal/recommended-project}
+composer create-project --no-install ${PROJECT:=drupal/cms}
 rm -f ${PROJECT#*/}/LICENSE* ${PROJECT#*/}/README* ${PROJECT#*/}/patches.lock.json
 cp -r ${PROJECT#*/}/* ./
 rm -rf ${PROJECT#*/}
@@ -30,5 +30,4 @@ composer config scripts.post-drupal-scaffold-cmd \
 composer require -n --no-update \
     drush/drush \
     cweagans/composer-patches \
-    drupal/cms:^2 \
     drupal/lupus_decoupled_starter:^2
