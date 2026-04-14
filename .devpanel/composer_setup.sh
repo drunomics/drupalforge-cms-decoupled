@@ -26,7 +26,9 @@ composer config -jm extra.drupal-scaffold.file-mapping '{
 composer config scripts.post-drupal-scaffold-cmd \
     'cd web/sites/default && test -z "$(grep '\''include \$devpanel_settings;'\'' settings.php)" && patch -Np1 -r /dev/null < $APP_ROOT/.devpanel/drupal-settings.patch || :'
 
-# Add Drush and Composer Patches.
+# Add packages.
 composer require -n --no-update \
     drush/drush \
-    cweagans/composer-patches
+    cweagans/composer-patches \
+    drupal/cms:^2 \
+    drupal/lupus_decoupled_starter:^2
