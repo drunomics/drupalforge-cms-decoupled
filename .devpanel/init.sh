@@ -53,7 +53,7 @@ fi
 echo
 if [ -z "$(drush status --field=db-status)" ]; then
   echo 'Install Drupal.'
-  time drush -n si
+  time drush -n si ../recipes/lupus_decoupled_starter
 
   echo
   echo 'Tell Automatic Updates about patches.'
